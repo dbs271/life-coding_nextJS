@@ -1,7 +1,10 @@
 const Read = async (props) => {
-  const res = await fetch(`http://localhost:9999/topics/${props.params.id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + `topics/${props.params.id}`,
+    {
+      cache: "no-store",
+    }
+  );
   const topic = await res.json();
   return (
     <>
